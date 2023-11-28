@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+define('PAGINATION_COUNT',10);
 
 /*
 |--------------------------------------------------------------------------
@@ -29,11 +30,11 @@ Route::post('comment', 'App\Http\Controllers\HomeController@saveComment')->name(
 
 ################Begin paymentGateways Routes ########################
 
-Route::group(['prefix' => 'offers', 'middleware' => 'auth','namespace' =>'Offers'], function () {
-    Route::get('/', 'App\Http\Controllers\OfferController@index')->name('offers.all');
+Route::group(['prefix' => 'offers', 'middleware' => 'auth','namespace' =>'App\Http\Controllers\Offers'], function () {
+    Route::get('/', 'OfferController@index')->name('offers.all');
     Route::get('details/{offer_id}', 'OfferController@show')->name('offers.show');
 });
 
-//Route::get('get-checkout-id', 'PaymentProviderController@getCheckOutId')->name('offers.checkout');
+Route::get('get-checkout-id', 'App\Http\Controllers\PaymentProviderController@getCheckOutId')->name('offers.checkout');
 
 ################End paymentGateways Routes ########################
