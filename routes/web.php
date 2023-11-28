@@ -29,11 +29,11 @@ Route::post('comment', 'App\Http\Controllers\HomeController@saveComment')->name(
 
 ################Begin paymentGateways Routes ########################
 
-//Route::group(['prefix' => 'offers', 'middleware' => 'auth','namespace' =>'Offers'], function () {
-//    Route::get('/', 'OfferController@index')->name('offers.all');
-//    Route::get('details/{offer_id}', 'OfferController@show')->name('offers.show');
-//});
-//
+Route::group(['prefix' => 'offers', 'middleware' => 'auth','namespace' =>'Offers'], function () {
+    Route::get('/', 'App\Http\Controllers\OfferController@index')->name('offers.all');
+    Route::get('details/{offer_id}', 'OfferController@show')->name('offers.show');
+});
+
 //Route::get('get-checkout-id', 'PaymentProviderController@getCheckOutId')->name('offers.checkout');
 
 ################End paymentGateways Routes ########################
